@@ -68,3 +68,6 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+limenius_react:
+    # Other options are "server_side" and "client_side"
+    default_rendering: "client_side"
