@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -169,12 +170,52 @@ class User
     {
         return $this->surname;
     }
+
+    /**
+     * Add game
+     *
+     * @param \AppBundle\Entity\Game $game
+     *
+     * @return User
+     */
+    public function addGame(\AppBundle\Entity\Game $game)
+    {
+        $this->games[] = $game;
+
+        return $this;
+    }
+
+    /**
+     * Remove game
+     *
+     * @param \AppBundle\Entity\Game $game
+     */
+    public function removeGame(\AppBundle\Entity\Game $game)
+    {
+        $this->games->removeElement($game);
+    }
+
+    /**
+     * Get games
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGames()
+    {
+        return $this->games;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->games = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -209,39 +250,5 @@ class User
     public function getRoles()
     {
         return $this->roles;
-    }
-
-    /**
-     * Add game
-     *
-     * @param \AppBundle\Entity\Game $game
-     *
-     * @return User
-     */
-    public function addGame(\AppBundle\Entity\Game $game)
-    {
-        $this->games[] = $game;
-
-        return $this;
-    }
-
-    /**
-     * Remove game
-     *
-     * @param \AppBundle\Entity\Game $game
-     */
-    public function removeGame(\AppBundle\Entity\Game $game)
-    {
-        $this->games->removeElement($game);
-    }
-
-    /**
-     * Get games
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGames()
-    {
-        return $this->games;
     }
 }

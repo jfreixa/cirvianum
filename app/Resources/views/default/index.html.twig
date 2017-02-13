@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ react_component('App') }}
+    <div class="container">
+        <div class="row">
+            {{ form(form) }}
+        </div>
+    </div>
 {% endblock %}

@@ -29,6 +29,13 @@ class Result
     private $score;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="level", type="integer")
+     */
+    private $level;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
@@ -154,5 +161,29 @@ class Result
     public function getGame()
     {
         return $this->game;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     *
+     * @return Result
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 }
