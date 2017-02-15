@@ -118,11 +118,11 @@ class Result
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param User $user
      *
      * @return Result
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -146,7 +146,7 @@ class Result
      *
      * @return Result
      */
-    public function setGame(\AppBundle\Entity\Game $game = null)
+    public function setGame(Game $game = null)
     {
         $this->game = $game;
 
