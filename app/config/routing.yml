@@ -1,3 +1,7 @@
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@AppBundle/Controller/app"
+    type:     annotation
+    prefix:   /app
+public:
+    resource: "@AppBundle/Controller/common"
     type:     annotation
